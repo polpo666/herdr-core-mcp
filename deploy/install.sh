@@ -49,7 +49,12 @@ sed \
 
 scp "$RENDERED" "$REMOTE:Library/LaunchAgents/$LABEL.plist" >/dev/null
 ssh "$REMOTE" "launchctl bootout gui/\$(id -u)/$LABEL 2>/dev/null || true; \
-  launchctl bootstrap gui/\$(id -u) \"\$HOME/Library/LaunchAgents/$LABEL.plist\"; \
+  sleep 1; \
+  launchctl bootstrap gui/\$(id -u) \"\$HOME/Library/LaunchAgents/$LABEL.plist\" 2>/dev/null || true; \
   launchctl kickstart -k gui/\$(id -u)/$LABEL; \
-  sleep 2; \
-  curl -fsS \"http://127.0.0.1:$PORT/healthz\"; echo"
+  i=0; \
+  until curl -fsS \"http://127.0.0.1:$PORT/healthz\"; do \
+    i=\$((i + 1)); \
+    if [ \$i -ge 20 ]; then echo 'health check failed' >&2; exit 1; fi; \
+    sleep 1; \
+  done; echo"
