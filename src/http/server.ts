@@ -110,7 +110,7 @@ export function startServer(config: Config, client: HerdrCoreClient, audit: Audi
   );
 
   app.get("/healthz", (_req, res) => {
-    res.json({ ok: true, name: "herdr-mcp", readOnly: config.readOnly });
+    res.json({ ok: true, name: "herdr-core-mcp", readOnly: config.readOnly });
   });
 
   const sessions = new Map<string, Session>();

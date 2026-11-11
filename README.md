@@ -1,5 +1,7 @@
 # herdr-core-mcp
 
+[![CI](https://github.com/polpo666/herdr-core-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/polpo666/herdr-core-mcp/actions/workflows/ci.yml)
+
 A remote [MCP](https://modelcontextprotocol.io) server that lets **ChatGPT web** see and talk to
 [herdr-core](https://github.com/polpo666/heeler) terminals — coding agents like Claude Code, Codex
 and pi, plus plain shells — across the machines your core is federated with.
