@@ -1,0 +1,10 @@
+herdr-core-mcp
+Copyright 2026 polpo
+
+This product includes software derived from Heeler
+(https://github.com/polpo666/heeler), Copyright polpo,
+licensed under the Apache License, Version 2.0.
+
+Specifically, src/core/frames.ts and src/core/socket.ts are ports of Heeler's
+herdr plugin helper (plugin/helper/core/frames.js and socket.js), and the wire
+vectors in test/fixtures/herdr-core-frames-v1.json originate from that project.
